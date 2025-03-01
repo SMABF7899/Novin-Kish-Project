@@ -1,5 +1,3 @@
-import time
-
 from Configs import seleniumConfig
 from TestUtils import Utils
 
@@ -48,34 +46,36 @@ class AddUser:
     def select_user_role(self, role):
         select_user_role_element = configName.WebDriverWait(configName.driver, 30).until(configName.EC.presence_of_element_located(self.user_role_select))
         Utils.highLight(select_user_role_element)
-        if role == "admin":
+        if role == "Admin":
             select_user_role_element.click()
             select_admin_role_element = configName.WebDriverWait(configName.driver, 30).until(configName.EC.presence_of_element_located(self.admin_role_select))
             Utils.highLight(select_admin_role_element)
             select_admin_role_element.click()
-        elif role == "ess":
+        elif role == "ESS":
             select_user_role_element.click()
             select_ess_role_element = configName.WebDriverWait(configName.driver, 30).until(configName.EC.presence_of_element_located(self.ess_role_select))
             Utils.highLight(select_ess_role_element)
             select_ess_role_element.click()
         else:
             print("Role not defined")
+            exit(1)
 
     def select_status(self, status):
         select_status_element = configName.WebDriverWait(configName.driver, 30).until(configName.EC.presence_of_element_located(self.status_select))
         Utils.highLight(select_status_element)
-        if status == "enable":
+        if status == "Enable":
             select_status_element.click()
             select_enable_status_element = configName.WebDriverWait(configName.driver, 30).until(configName.EC.presence_of_element_located(self.enable_status_select))
             Utils.highLight(select_enable_status_element)
             select_enable_status_element.click()
-        elif status == "disable":
+        elif status == "Disable":
             select_status_element.click()
             select_disable_status_element = configName.WebDriverWait(configName.driver, 30).until(configName.EC.presence_of_element_located(self.disable_status_select))
             Utils.highLight(select_disable_status_element)
             select_disable_status_element.click()
         else:
             print("Status not defined")
+            exit(1)
 
     def enter_employee_name(self, employee_name):
         employee_name_element = configName.WebDriverWait(configName.driver, 30).until(configName.EC.presence_of_element_located(self.employee_name_input))

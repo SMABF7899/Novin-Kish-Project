@@ -1,7 +1,6 @@
-import time
-
 from OrangeHrmlive.LoginPage import LoginPage
 from OrangeHrmlive.AddUser import AddUser
+from OrangeHrmlive.ValidateUser import ValidateUser
 from Configs import seleniumConfig
 
 configName = seleniumConfig.set_config(".env")
@@ -50,3 +49,25 @@ class OrangeHrmLive:
         addUser.enter_confirm_password(self.users_list[1][2])
         addUser.click_save()
         addUser.check_save("Successfully Saved")
+
+    def validateUserOne(self):
+        validateUser = ValidateUser()
+        validateUser.check_system_user("System Users")
+        validateUser.enter_username(self.users_list[0][1])
+        validateUser.click_search()
+        validateUser.check_username(self.users_list[0][1])
+        validateUser.check_user_role(self.users_list[0][3])
+        validateUser.check_employee_name(self.users_list[0][0])
+        validateUser.check_status(self.users_list[0][4])
+        validateUser.click_reset()
+
+    def validateUserTwo(self):
+        validateUser = ValidateUser()
+        validateUser.check_system_user("System Users")
+        validateUser.enter_username(self.users_list[1][1])
+        validateUser.click_search()
+        validateUser.check_username(self.users_list[1][1])
+        validateUser.check_user_role(self.users_list[1][3])
+        validateUser.check_employee_name(self.users_list[1][0])
+        validateUser.check_status(self.users_list[1][4])
+        validateUser.click_reset()
