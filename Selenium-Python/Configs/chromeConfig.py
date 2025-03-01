@@ -12,6 +12,7 @@ import random
 import time
 import datetime
 from dotenv import dotenv_values
+import pandas as pd
 
 ENV = dotenv_values("../.env")
 start_time = time.time()
