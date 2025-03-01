@@ -1,6 +1,7 @@
 from OrangeHrmlive.LoginPage import LoginPage
 from OrangeHrmlive.AddUser import AddUser
 from OrangeHrmlive.ValidateUser import ValidateUser
+from OrangeHrmlive.LogoutPage import LogoutPage
 from Configs import seleniumConfig
 
 configName = seleniumConfig.set_config(".env")
@@ -71,3 +72,10 @@ class OrangeHrmLive:
         validateUser.check_employee_name(self.users_list[1][0])
         validateUser.check_status(self.users_list[1][4])
         validateUser.click_reset()
+
+    def logout(self):
+        logoutPage = LogoutPage()
+        logoutPage.check_admin_title("manda user")
+        logoutPage.click_profile()
+        logoutPage.click_logout()
+        logoutPage.check_logout("Login")
