@@ -1,6 +1,6 @@
 from Configs import seleniumConfig
 
-configName = seleniumConfig.set_config("../.env")
+configName = seleniumConfig.set_config(".env")
 
 
 class StoreEvalDB():
