@@ -1,5 +1,5 @@
 .env
 .venv
 .idea
-Configs/__pycache__
-TestUtils/__pycache__
+Configs/__pycache__/
+TestUtils/__pycache__/
